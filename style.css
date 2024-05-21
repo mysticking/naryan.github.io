@@ -82,3 +82,20 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+#code {
+    padding: 2rem 1rem;
+    background: #f4f4f4;
+    text-align: left;
+}
+
+.code-snippet {
+    margin: 1rem 0;
+}
+
+pre {
+    background: #272822;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
