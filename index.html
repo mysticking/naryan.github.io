@@ -10,6 +10,23 @@
      <!-- Prism.js JavaScript -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+     <!-- For formatting the output tables -->
+     <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
  
 </head>
 <body>
@@ -44,11 +61,124 @@
         </section>
 
         <section id="portfolio">
-            <h2>My Work</h2>
+            <h2>My Academic Work</h2>
             <div class="project">
-                <h3>Project Title 1</h3>
-                <img src="project1.jpg" alt="Project 1">
-                <p>Description of Project 1.</p>
+                <h3>Naive Method</h3>
+                <img src="images/Portfolio/project1.jpg" alt="Naive Method">
+                <p>This method is an analysis of a predetermined set of data using the naive method.
+                    After generating a simple forecast, the program then calculates errors, absolute
+                    errors, and absolute percentage errors. Using that data, the MAPE is calculated.
+                </p>
+                <p>Below are the results of a simple data series 
+                    [92.0, 91.7, 91.0, 89.0, 94.7, 93.5, 90.0, 89.8, 91.2, 87.2, 93.8, 98.2]
+                     when inputted into the program.
+                </p>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Actual</th>
+                                <th>Forecast</th>
+                                <th>Error</th>
+                                <th>Absolute Error</th>
+                                <th>Absolute % Error</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>92.0</td>
+                                <td>NaN</td>
+                                <td>NaN</td>
+                                <td>NaN</td>
+                                <td>NaN</td>
+                            </tr>
+                            <tr>
+                                <td>91.7</td>
+                                <td>92.0</td>
+                                <td>-0.3</td>
+                                <td>0.3</td>
+                                <td>0.327154</td>
+                            </tr>
+                            <tr>
+                                <td>91.0</td>
+                                <td>91.7</td>
+                                <td>-0.7</td>
+                                <td>0.7</td>
+                                <td>0.769231</td>
+                            </tr>
+                            <tr>
+                                <td>89.0</td>
+                                <td>91.0</td>
+                                <td>-2.0</td>
+                                <td>2.0</td>
+                                <td>2.247191</td>
+                            </tr>
+                            <tr>
+                                <td>94.7</td>
+                                <td>89.0</td>
+                                <td>5.7</td>
+                                <td>5.7</td>
+                                <td>6.019007</td>
+                            </tr>
+                            <tr>
+                                <td>93.5</td>
+                                <td>94.7</td>
+                                <td>-1.2</td>
+                                <td>1.2</td>
+                                <td>1.283422</td>
+                            </tr>
+                            <tr>
+                                <td>90.0</td>
+                                <td>93.5</td>
+                                <td>-3.5</td>
+                                <td>3.5</td>
+                                <td>3.888889</td>
+                            </tr>
+                            <tr>
+                                <td>89.8</td>
+                                <td>90.0</td>
+                                <td>-0.2</td>
+                                <td>0.2</td>
+                                <td>0.222717</td>
+                            </tr>
+                            <tr>
+                                <td>91.2</td>
+                                <td>89.8</td>
+                                <td>1.4</td>
+                                <td>1.4</td>
+                                <td>1.535088</td>
+                            </tr>
+                            <tr>
+                                <td>87.2</td>
+                                <td>91.2</td>
+                                <td>-4.0</td>
+                                <td>4.0</td>
+                                <td>4.587156</td>
+                            </tr>
+                            <tr>
+                                <td>93.8</td>
+                                <td>87.2</td>
+                                <td>6.6</td>
+                                <td>6.6</td>
+                                <td>7.036247</td>
+                            </tr>
+                            <tr>
+                                <td>98.2</td>
+                                <td>93.8</td>
+                                <td>4.4</td>
+                                <td>4.4</td>
+                                <td>4.480652</td>
+                            </tr>
+                            <tr>
+                                <td>NaN</td>
+                                <td>98.2</td>
+                                <td>NaN</td>
+                                <td>NaN</td>
+                                <td>NaN</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="project">
                 <h3>Project Title 2</h3>
@@ -62,11 +192,34 @@
         <h2>Python Code Examples</h2>
         <div class="code-snippet">
             <pre><code class="language-python">
-    # Example 1: Hello World
-    def hello_world():
-        print("Hello, world!")
-    
-    hello_world()
+                import numpy as np
+                import pandas as pd
+                
+                """Here we type the UMICS data directly (We are entering the data directly for simplicity.)"""
+                
+                # The UMICS data
+                actual = pd.Series([92.0, 91.7, 91.0, 89.0, 94.7, 93.5, 90.0, 89.8, 91.2, 87.2, 93.8, 98.2])
+                
+                forecast = pd.Series(np.ones(len(actual) + 1))                          # Create the column for the forecast
+                forecast[0] = float("NaN") # No forecast here
+                
+                # Run the indented commands repeatedly, with the value of `i` ranging from 1 to `actual.size`
+                for i in range(1, len(actual)+1):
+                    forecast[i] = actual[i - 1]                                         # Use the naive method to create the forecast
+                
+                df = pd.DataFrame(data = {"Actual": actual, "Forecast": forecast})      # Create a DataFrame (like a spreadsheet)
+                # Print the DataFrame
+                print(df)
+                
+                error = df["Actual"] - df["Forecast"]                                   # The error column
+                absError = abs(error)                                                   # The absolute error column
+                absPctError = absError/df["Actual"] * 100                               # The absolute percentage error column
+                mape = absPctError.mean()                                               # Find the mean absolute percentage error
+                
+                # Append the error, absolute error, and absolute percentage error columns to the DataFrame `df`
+                df = pd.DataFrame(data = {**df, "Error": error, "Absolute Error": absError, "Absolute % Error": absPctError })
+                # Print a formatted string (put Python variable names inside of `{}`)
+                print(f"{df}\n\nMAPE: {mape}")
             </code></pre>
         </div>
         <div class="code-snippet">
@@ -98,11 +251,11 @@
             
             <button type="submit">Send</button>
         </form>
-        <p>Or reach me at <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p>Or reach me at <a href="mailto:naryantaggarwal@gmail.com">naryantaggarwal@gmail.com</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2024 Naryan Aggarwal. All rights reserved.</p>
     </footer>
 </body>
 </html>
