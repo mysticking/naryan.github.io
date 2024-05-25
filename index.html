@@ -435,6 +435,29 @@ print(y.head())
                     the US Census Bureau. The data is read from an excel file and indexed by month. The last 24 points
                     are reserved for testing.
                 </p>
+                <div class="carousel">
+                    <div class="carousel-content">
+                        <div class="carousel-item">
+                            <h4>Exploratory Plot</h4>
+                            <img src="images/Portfolio/ARIMA_exploratory_plot.png" alt="Exploratory Plot">
+                        </div>
+                        <div class="carousel-item">
+                            <h4>Autocorrelation Plot</h4>
+                            <img src="images/Portfolio/ARIMA_autocorrelation_plot.png" alt="Autocorrelation Plot">
+                        </div>
+                        <div class="carousel-item">
+                            <h4>Partial Autocorrelation Plot</h4>
+                            <img src="images/Portfolio/ARIMA_partialcorrelation_plot.png" alt="Partial Autocorrelation Plot">
+                        </div>
+                        <div class="carousel-item">
+                            <h4>ARIMA Model Plot</h4>
+                            <img src="images/Portfolio/ARIMA_model_plot.png" alt="Arima Model">
+                        </div>
+                        
+                    </div>
+                    <button class="carousel-button prev"><</button>
+                    <button class="carousel-button next">></button>
+                </div>
             </div>
             <div class="code">
                 <pre><code class="language-python">
@@ -478,7 +501,6 @@ df.columns = ["Month", "PHS"]
 phs = df["PHS"]
 # Label the rows of `phs` by the month
 phs.index = df["Month"]
-# print(phs)
 
 # Do an initial exploratory plot
 plt.plot(phs)
@@ -488,13 +510,11 @@ plt.show()
 correlAcf = acf(phs, nlags=10, alpha=0.05)
 acfDF = correlogramAsDataFrame(correlAcf)
 plotCorrelogram(acfDF)
-print(acfDF)
 
 # Find and display the partial autocorrelation function.
 correlPacf = pacf(phs, nlags=10, alpha=0.05)
 pacfDF = correlogramAsDataFrame(correlPacf, partial=True)
 plotCorrelogram(pacfDF)
-print(pacfDF)
 
 # Order selection
 p = 1

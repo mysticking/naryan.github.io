@@ -157,7 +157,7 @@ footer {
     }
 
     nav {
-        flex-direction: column;
+        /* flex-direction: column; */
     }
 
     nav a {
@@ -251,6 +251,65 @@ footer {
     font-weight: bold;
     background: #005bb5;
     color: #fff;
+}
+
+/* Carousel Styles */
+.carousel {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-item p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background-color: #0056b3;
 }
 
 /* Code Block styles */
