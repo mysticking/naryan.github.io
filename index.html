@@ -64,6 +64,7 @@
 
         <h2>Academic Portfolio</h2>
 
+        <!--Naive Method-->
         <section class="code-explanation-container">
             <div class="explanation">
                 <h3>Naive Method</h3>
@@ -214,6 +215,7 @@ print(f"{df}\n\nMAPE: {mape}")
 
         <hr>
 
+        <!--Causal Regression Method-->
         <section class="code-explanation-container">
             <div class="explanation">
                 <h3>Causal Regression</h3>
@@ -379,8 +381,7 @@ print(f"{df}\n\nMAPE: {mape}")
                 <pre><code class="language-python">
 import numpy as np
 from numpy.random import default_rng
-from pandas import Series
-from pandas import concat
+from pandas import Series, concat
 import statsmodels.api as sm
 
 # Helpful in reproducing results
@@ -428,6 +429,7 @@ print(y.head())
 
         <hr>
 
+        <!--ARIMA Method-->
         <section class="code-explanation-container">
             <div class="explanation">
                 <h3>ARIMA (Autoregressive Integrated Moving Average)</h3>
@@ -458,6 +460,171 @@ print(y.head())
                     <button class="carousel-button prev"><</button>
                     <button class="carousel-button next">></button>
                 </div>
+                <div>
+                    <h4>SARIMAX Results</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Dep. Variable:</th>
+                                <td colspan="4">PHS</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">No. Observations:</th>
+                                <td colspan="4">756</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Model:</th>
+                                <td colspan="4">ARIMA(1, 1, 1)</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Log Likelihood:</th>
+                                <td colspan="4">-4610.091</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Date:</th>
+                                <td colspan="4">Fri, 24 May 2024</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">AIC:</th>
+                                <td colspan="4">9226.181</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Time:</th>
+                                <td colspan="4">20:50:07</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">BIC:</th>
+                                <td colspan="4">9240.061</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Sample:</th>
+                                <td colspan="4">01-01-1959 - 12-01-2021</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">HQIC:</th>
+                                <td colspan="4">9231.528</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Covariance Type:</th>
+                                <td colspan="4">opg</td>
+                            </tr>
+                        </thead>
+                    </table>
+            
+                    <h3>Parameter Estimates</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Coefficient</th>
+                                <th>Std. Error</th>
+                                <th>z</th>
+                                <th>P>|z|</th>
+                                <th>[0.025</th>
+                                <th>0.975]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ar.L1</td>
+                                <td>-0.0273</td>
+                                <td>0.093</td>
+                                <td>-0.295</td>
+                                <td>0.768</td>
+                                <td>-0.209</td>
+                                <td>0.154</td>
+                            </tr>
+                            <tr>
+                                <td>ma.L1</td>
+                                <td>-0.3161</td>
+                                <td>0.088</td>
+                                <td>-3.604</td>
+                                <td>0.000</td>
+                                <td>-0.488</td>
+                                <td>-0.144</td>
+                            </tr>
+                            <tr>
+                                <td>sigma2</td>
+                                <td>1.18e+04</td>
+                                <td>467.224</td>
+                                <td>25.254</td>
+                                <td>0.000</td>
+                                <td>1.09e+04</td>
+                                <td>1.27e+04</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            
+                    <h3>Diagnostic Tests</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Ljung-Box (L1) (Q):</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Prob(Q):</td>
+                                <td>0.98</td>
+                            </tr>
+                            <tr>
+                                <td>Jarque-Bera (JB):</td>
+                                <td>81.01</td>
+                            </tr>
+                            <tr>
+                                <td>Prob(JB):</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Heteroskedasticity (H):</td>
+                                <td>0.63</td>
+                            </tr>
+                            <tr>
+                                <td>Prob(H) (two-sided):</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Skew:</td>
+                                <td>-0.29</td>
+                            </tr>
+                            <tr>
+                                <td>Kurtosis:</td>
+                                <td>4.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Conclusions on the results:</p>
+                <ol>
+                    <li><b>Goodness of Fit:</b> The various criterion (AIC, BIC, and HQIC) are indicative of a better model.
+                    The model appears to fit well from the data based on these metrics.</li>
+                    <li><b>Coefficients:</b> Though the autoregressive term is not significant, the Moving Average term
+                    suggests it is a very important part of the model.</li>
+                    <li><b>Variance:</b> It should be noted that variance, however, is quite 
+                        high, which suggests the model does not cover much of the variance in the data.</li>
+                    <li><b>Ljung-Box Test</b> <i>(Diagnostic Test)</i><b>:</b> Suggests low autocorrelation, which 
+                    is great for an ARIMA model.</li>
+                    <li><b>Jarque-Bera Test</b> <i>(Diagnostic Test)</i><b>:</b> Residuals are not normally distributed,
+                    meaning that forecasts using this model may not be evenly reliable.</li>
+                    <li><b>Heteroskedasticity Test</b> <i>(Diagnostic Test)</i><b>:</b> Building upon the previous test, 
+                    this value suggests that the residuals' variance is inconsistent, which can affect the model's ability 
+                    to perform.</li>
+                    <li><b>Skewness and Kurtosis Test</b> <i>(Diagnostic Test)</i><b>:</b> Negative skewness indicates that 
+                        the residuals are skewed to the left. A kurtosis value greater than 3 indicates heavier tails than 
+                        a normal distribution, suggesting outliers.</li>
+                </ol>
+                <p>What we can gather from this overall is that, although the model seems to encapsulate the data well, it is 
+                    highly likely to falter in its current state if used for forecasting or actual business decisions. Some 
+                    improvements can be made that can assist in fortifying the model.
+                </p>
+                <ul>
+                    <li>Adding additional predictors could address the model not normally covering the patterns in the data.</li>
+                    <li>Removing the AR term could prove fruitful  as it is seems to be unnecessary. This would also make the 
+                        model easier to understand if it is not needed.
+                    </li>
+                    <li>As data is gathered from a real source, outliers or possibly structural changes in the data source will 
+                        affect the results.
+                    </li>
+                </ul>
             </div>
             <div class="code">
                 <pre><code class="language-python">
