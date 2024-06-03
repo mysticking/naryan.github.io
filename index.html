@@ -34,7 +34,9 @@
         <nav id="navbar">
             <a href="#home">Home</a>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="">Resume</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -58,11 +60,36 @@
                 solutions.</p>
         </section>
 
+        <section id="skills" class="skills-section">
+            <h3>My Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-tile">HTML</div>
+                <div class="skill-tile">CSS</div>
+                <div class="skill-tile">JavaScript</div>
+                <div class="skill-tile">Python</div>
+                <div class="skill-tile">Java</div>
+                <div class="skill-tile">SQL</div>
+            </div>
+            <br>
+            <div class="skills-grid">
+                <div class="skill-tile">C++</div>
+                <div class="skill-tile">C#</div>
+                <div class="skill-tile">French</div>
+                <div class="skill-tile">Unix/Linux</div>
+                <div class="skill-tile">Web Scraping</div>
+                <div class="skill-tile">Swift</div>
+            </div>
+        </section>
+
         <section id="portfolio">
             <p>In progress</p>
         </section>
 
         <h2>Academic Portfolio</h2>
+        <p>I have practiced with many methods of data analytics so far in my course curriculum. Below are some examples
+            of my implementations of some classical and "big data" methods. For the classical methods, I have also included
+            my Python code so results can be checked and reproduced.
+        </p>
 
         <!--Naive Method-->
         <section class="code-explanation-container">
@@ -209,7 +236,8 @@ mape = absPctError.mean()                                               # Find t
 df = pd.DataFrame(data = {**df, "Error": error, "Absolute Error": absError, "Absolute % Error": absPctError })
 # Print a formatted string (put Python variable names inside of `{}`)
 print(f"{df}\n\nMAPE: {mape}")
-                    </code></pre>
+                    </code>
+                </pre>
             </div>
         </section>
 

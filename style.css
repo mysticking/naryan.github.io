@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
@@ -63,7 +63,7 @@ nav a:hover {
 
 /* Main Content */
 main {
-    padding: 1rem;
+    padding: 3rem;
 }
 
 section {
@@ -150,62 +150,41 @@ footer {
     border-radius: 0 0 10px 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    nav {
-        /* flex-direction: column; */
-    }
-
-    nav a {
-        padding: 0.5rem;
-        border-top: 1px solid #555;
-        border-bottom: 1px solid #555;
-    }
+/* Skills Grid */
+.skills-section {
+    padding: 50px 20px;
+    text-align: center;
 }
 
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    form input, form textarea {
-        font-size: 1rem;
-    }
+.skills-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-/* Flex Container for Code and Explanation */
-.code-explanation-container {
+.skills-grid {
     display: flex;
     flex-wrap: wrap;
-    margin: 2rem 0;
+    justify-content: center;
+    gap: 20px;
 }
 
-.code-explanation-container .explanation, .code-explanation-container .code {
-    flex: 1;
-    padding: 1rem;
-    box-sizing: border-box;
+.skill-tile {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background 0.3s;
 }
 
-.code-explanation-container .code {
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-
-.code-explanation-container pre {
-    margin: 0;
-    font-family: monospace;
-}
-
-@media (max-width: 768px) {
-    .code-explanation-container {
-        flex-direction: column;
-    }
+.skill-tile:hover {
+    transform: translateY(-10px);
+    background: #0056b3;
 }
 
 /* OLS Table Styles */
@@ -328,4 +307,78 @@ pre {
     padding: 1rem;
     border-radius: 5px;
     overflow-x: auto;
+}
+
+/* Flex Container for Code and Explanation */
+.code-explanation-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.code-explanation-container .explanation, .code-explanation-container .code {
+    flex: 1;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.code-explanation-container .code {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.code-explanation-container pre {
+    margin: 0;
+    font-family: monospace;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        padding: 0.5rem;
+        border-top: 1px solid #555;
+        border-bottom: 1px solid #555;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-tile {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .code-explanation-container {
+        flex-direction: column;
+    }
+
+    .code-prompt {
+        display: block;
+    }
+
+    .code-content {
+        display: none;
+    }
+
+    .code-content.show {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    form input, form textarea {
+        font-size: 1rem;
+    }
 }
